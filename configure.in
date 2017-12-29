@@ -2,9 +2,14 @@ dnl Process this file with autoconf to produce a configure script.
 dnl
 dnl Written for autoconf-2.57 and automake-1.7.2
 
-AC_INIT(app/endian-conv.h)
-AM_INIT_AUTOMAKE(soundtracker, 0.6.8)
+AC_INIT([soundtracker],[0.6.8])
+AM_INIT_AUTOMAKE 
+
+AM_SILENT_RULES([yes])
+
 AM_CONFIG_HEADER(config.h)
+
+AM_DEP_TRACK
 
 dnl -----------------------------------------------------------------------
 dnl Test for GCC
@@ -18,7 +23,7 @@ if test $GCC != yes; then
 	exit 1
 fi
 
-CFLAGS="$CFLAGS -Wall"
+CFLAGS="$CFLAGS -w"
 
 dnl -----------------------------------------------------------------------
 dnl Test for GAS
@@ -28,7 +33,7 @@ AC_ARG_ENABLE(asm,
 [  --disable-asm           Disable use of assembler optimizations],
 asm_support=no)
 
-AM_CONDITIONAL(NO_ASM, test x$asm_support = xno)
+AM_CONDITIONAL([NO_ASM], [test x$asm_support = xno])
 
 if test x$asm_support != xno; then
   AM_PROG_AS
@@ -365,7 +370,10 @@ else
   AC_DEFINE_UNQUOTED(PREFIX, "${prefix}", [Kein Mensch weiss, warum])
 fi
 
-AC_OUTPUT([
+AC_CHECK_LIB([X11],[XKeysymToString],[LIBS="$LIBS -lX11"],[])
+AC_CHECK_LIB([m],[rint],[LIBS="$LIBS -lm"],[])
+
+AC_CONFIG_FILES([
 Makefile
 app/Makefile
 app/drivers/Makefile
@@ -373,3 +381,4 @@ app/mixers/Makefile
 po/Makefile.in
 doc/Makefile
 ])
+AC_OUTPUT

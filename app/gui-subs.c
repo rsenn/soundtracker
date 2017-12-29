@@ -414,13 +414,13 @@ gui_stringlist_in_scrolled_window (int n, gchar **tp,  GtkWidget *hbox)
     return list;
 }
 
-inline void
+extern inline void
 gui_list_clear (GtkWidget *list)
 {
     gtk_list_store_clear(GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(list))));
 }
 
-inline void
+extern inline void
 gui_list_clear_with_model (GtkTreeModel *model)
 {
     gtk_list_store_clear(GTK_LIST_STORE(model));
@@ -513,7 +513,7 @@ gui_list_handle_selection (GtkWidget *list, GCallback handler, gpointer data)
     g_signal_connect_after(sel, "changed", handler, data);
 }
 
-inline gboolean
+extern inline gboolean
 gui_list_get_iter (guint n, GtkListStore *tree_model, GtkTreeIter *iter)
 {
     gchar *path;
@@ -525,7 +525,7 @@ gui_list_get_iter (guint n, GtkListStore *tree_model, GtkTreeIter *iter)
     return result;
 }
 
-inline void
+extern inline void
 gui_string_list_set_text (GtkWidget *list, guint row, guint col, const gchar *string)
 {
     GtkTreeIter iter;
@@ -535,7 +535,7 @@ gui_string_list_set_text (GtkWidget *list, guint row, guint col, const gchar *st
 	gtk_list_store_set(list_store, &iter, col, string, -1);
 }
 
-inline void
+extern inline void
 gui_list_select (GtkWidget *list, guint row, gboolean use_align, gfloat align)
 {
     gchar *path_string;

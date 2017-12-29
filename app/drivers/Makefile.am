@@ -39,6 +39,6 @@ if DRIVER_SDL
   libdrivers_a_SOURCES += sdl-output.c
 endif
 
-INCLUDES = -I.. ${ST_S_JACK_INCLUDES}
+INCLUDES = -I$(srcdir)/.. -I$(builddir)/.. ${ST_S_JACK_INCLUDES}
 
 EXTRA_DIST = dsound-output.c
