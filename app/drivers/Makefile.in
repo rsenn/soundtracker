@@ -97,6 +97,7 @@ host_triplet = @host@
 @DRIVER_IRIX_TRUE@am__append_7 = irix-output.c
 @DRIVER_SUN_TRUE@am__append_8 = sun-output.c sun-input.c
 @DRIVER_SDL_TRUE@am__append_9 = sdl-output.c
+@DRIVER_PULSE_TRUE@am__append_10 = pulse-output.c
 subdir = app/drivers
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
@@ -124,7 +125,7 @@ am__libdrivers_a_SOURCES_DIST = dummy-drivers.c file-output.c \
 	oss-output.c oss-input.c alsa-output.c alsa-input.c \
 	alsa2-output.c alsa2-input.c alsa1x-output.c esd-output.c \
 	jack-output.c irix-output.c sun-output.c sun-input.c \
-	sdl-output.c
+	sdl-output.c pulse-output.c
 @DRIVER_OSS_TRUE@am__objects_1 = oss-output.$(OBJEXT) \
 @DRIVER_OSS_TRUE@	oss-input.$(OBJEXT)
 @DRIVER_ALSA_TRUE@am__objects_2 = alsa-output.$(OBJEXT) \
@@ -138,11 +139,12 @@ am__libdrivers_a_SOURCES_DIST = dummy-drivers.c file-output.c \
 @DRIVER_SUN_TRUE@am__objects_8 = sun-output.$(OBJEXT) \
 @DRIVER_SUN_TRUE@	sun-input.$(OBJEXT)
 @DRIVER_SDL_TRUE@am__objects_9 = sdl-output.$(OBJEXT)
+@DRIVER_PULSE_TRUE@am__objects_10 = pulse-output.$(OBJEXT)
 am_libdrivers_a_OBJECTS = dummy-drivers.$(OBJEXT) \
 	file-output.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
 	$(am__objects_3) $(am__objects_4) $(am__objects_5) \
 	$(am__objects_6) $(am__objects_7) $(am__objects_8) \
-	$(am__objects_9)
+	$(am__objects_9) $(am__objects_10)
 libdrivers_a_OBJECTS = $(am_libdrivers_a_OBJECTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -342,7 +344,7 @@ noinst_LIBRARIES = libdrivers.a
 libdrivers_a_SOURCES = dummy-drivers.c file-output.c $(am__append_1) \
 	$(am__append_2) $(am__append_3) $(am__append_4) \
 	$(am__append_5) $(am__append_6) $(am__append_7) \
-	$(am__append_8) $(am__append_9)
+	$(am__append_8) $(am__append_9) $(am__append_10)
 INCLUDES = -I$(srcdir)/.. -I$(builddir)/.. ${ST_S_JACK_INCLUDES}
 EXTRA_DIST = dsound-output.c
 all: all-am
@@ -405,6 +407,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/jack-output.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/oss-input.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/oss-output.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pulse-output.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sdl-output.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sun-input.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sun-output.Po@am__quote@

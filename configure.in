@@ -240,6 +240,27 @@ AM_CONDITIONAL(DRIVER_ALSA, test x$alsa_support = xveryold)
 AM_CONDITIONAL(DRIVER_ALSA_050, test x$alsa_support = xold)
 AM_CONDITIONAL(DRIVER_ALSA_09x, test x$alsa_support = xnew)
 
+
+dnl -----------------------------------------------------------------------
+dnl Test for PULSE-lib
+dnl PULSE 0.9.x: snd_card_load() in libpulse.
+dnl PULSE 0.5.x: snd_pcm_channel_params() in libpulse.
+dnl -----------------------------------------------------------------------
+
+AC_ARG_ENABLE(pulse,
+[  --disable-pulse          Disable PULSE driver (default = try)],
+pulse_support=no)
+
+if test x$pulse_support != xno; then
+  AC_CHECK_LIB(pulse,pa_mainloop_run,
+    [pulse_support=yes
+     AC_DEFINE([DRIVER_PULSE], 1, [Set if pulseaudio driver wanted])
+     LIBS="$LIBS -lpulse"
+    ], [])
+fi
+
+AM_CONDITIONAL(DRIVER_PULSE, test x$pulse_support = xyes)
+
 dnl -----------------------------------------------------------------------
 dnl Test for ESD
 dnl -----------------------------------------------------------------------

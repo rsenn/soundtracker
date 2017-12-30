@@ -21,6 +21,9 @@
 /* Set if OSS driver wanted */
 #undef DRIVER_OSS
 
+/* Set if pulseaudio driver wanted */
+#undef DRIVER_PULSE
+
 /* Set if SDL audio driver wanted */
 #undef DRIVER_SDL
 
