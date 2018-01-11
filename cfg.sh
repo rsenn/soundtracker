@@ -10,7 +10,7 @@ cfg ()
           --program-suffix="-gtk2" \
           --localstatedir=/var \
           --disable-{silent-rules,dependency-tracking} \
-          --disable-{asm,rpath} \
+          --disable-rpath \
           --disable-{audiofiletest,esdtest,sdltest} \
           --with-{libiconv,libintl,audiofile,esd,sdl}-prefix=/usr \
           "$@"
