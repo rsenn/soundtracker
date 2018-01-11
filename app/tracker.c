@@ -1421,10 +1421,10 @@ tracker_init (Tracker *t)
     t->button = -1;
 }
 
-guint
+GType
 tracker_get_type (void)
 {
-    static guint tracker_type = 0;
+    static GType tracker_type = 0;
     
     if (!tracker_type) {
 	GTypeInfo tracker_info =

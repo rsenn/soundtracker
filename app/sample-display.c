@@ -887,10 +887,10 @@ sample_display_init (SampleDisplay *s)
     s->idle_handler = 0;
 }
 
-guint
+GType
 sample_display_get_type (void)
 {
-    static guint sample_display_type = 0;
+    static GType sample_display_type = 0;
 
     if (!sample_display_type) {
 	GTypeInfo sample_display_info =

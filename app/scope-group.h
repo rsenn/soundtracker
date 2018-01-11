@@ -59,7 +59,7 @@ struct _ScopeGroupClass
     GtkHBoxClass parent_class;
 };
 
-guint
+GType
 scope_group_get_type (void);
 
 #ifndef NO_GDK_PIXBUF

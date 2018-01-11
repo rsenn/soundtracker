@@ -116,10 +116,10 @@ extspinbutton_class_init (ExtSpinButtonClass *class)
     parent_class = gtk_type_class (GTK_TYPE_ENTRY);
 }
 
-guint
+GType
 extspinbutton_get_type (void)
 {
-    static guint extspinbutton_type = 0;
+    static GType extspinbutton_type = 0;
     
     if (!extspinbutton_type) {
 	GTypeInfo extspinbutton_info =

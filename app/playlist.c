@@ -693,11 +693,13 @@ playlist_init (Playlist *p)
     p->frozen = FALSE;
 }
 
-guint
+
+    
+GType
 playlist_get_type()
 {
-    static guint playlist_type = 0;
-    
+    static GType __thread playlist_type = 0;
+
     if (!playlist_type) {
 	GTypeInfo playlist_info =
 	{

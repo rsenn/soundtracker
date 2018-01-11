@@ -322,10 +322,10 @@ scope_group_new (void)
     return GTK_WIDGET(s);
 }
 
-guint
+GType
 scope_group_get_type (void)
 {
-    static guint scope_group_type = 0;
+    static GType scope_group_type = 0;
     
     if (!scope_group_type) {
 	GTypeInfo scope_group_info =

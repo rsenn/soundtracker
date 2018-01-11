@@ -87,7 +87,7 @@ struct _SampleDisplayClass
     void (*window_changed)(SampleDisplay *s, int start, int end);
 };
 
-guint          sample_display_get_type            (void);
+GType          sample_display_get_type            (void);
 GtkWidget*     sample_display_new                 (gboolean edit);
 
 void           sample_display_set_data_16         (SampleDisplay *s, gint16 *data, int len, gboolean copy);

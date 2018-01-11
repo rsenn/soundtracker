@@ -23,7 +23,17 @@ if test $GCC != yes; then
 	exit 1
 fi
 
-CFLAGS="$CFLAGS -w"
+
+dnl Check whether to enable debugging
+AC_ARG_ENABLE(debug,  [  --enable-debug          enable debugging ],
+        ac_arg_debug="Y", ac_arg_debug="N")
+
+if test $ac_arg_debug = "Y" ; then
+        CFLAGS="-pipe -Wall -Wno-unused -O0 -ggdb "
+else    
+        CFLAGS="-pipe -O3 -ffast-math -fexpensive-optimizations -DNDEBUG -Wno-unused "
+fi
+
 
 dnl -----------------------------------------------------------------------
 dnl Test for GAS
